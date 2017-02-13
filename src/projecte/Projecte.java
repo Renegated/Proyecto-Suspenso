@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class Projecte {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
-        int opcio, infor, capital, contingut;
-        int edat [] = new int [6];
+        int opcio, infor, capital, contingut, edat, construccio, nplantes, jubi, difedat;
+        int edats [] = new int [6];
+        String professio, accidents, pagament;
+        boolean hosp, assistencia, instal, gaigua;
         float comp = 0f;
         client persona [] = new client [20];
         
@@ -31,13 +33,13 @@ public class Projecte {
             case 1:
                 System.out.println("Introdueix el tipus d'assegurança: \n"+
                 "1. Familiar\n"+
-                "2. Vida\n"
-//                "3. Accident\n"+
-//                "4. Incapacitat temporal\n"+
-//                "5. Llar\n"+
-//                "6. Comunitats\n"+
-//                "7. Estalvis\n");
-                );
+                "2. Vida\n"+
+                "3. Accident\n"+
+                "4. Incapacitat temporal\n"+
+                "5. Llar\n"+
+                "6. Comunitats\n"+
+                "7. Estalvis\n");
+     
                 int tipus = sc.nextInt();
                 
                 switch(tipus){
@@ -50,14 +52,14 @@ public class Projecte {
                         if(capital == i){
                             for(int x = 1; x < persones+1; x++){
                                 System.out.print("Edat"+x+": ");
-                                edat[x] = sc.nextInt();
-                                if(edat[x] >= 0 && edat[x] <= 30)
+                                edats[x] = sc.nextInt();
+                                if(edats[x] >= 0 && edats[x] <= 30)
                                     comp += 6.04f;
-                                if(edat[x] >= 31 && edat[x] <= 50)
+                                if(edats[x] >= 31 && edats[x] <= 50)
                                     comp += 10.06f;
-                                if(edat[x] >= 51 && edat[x] <= 69)
+                                if(edats[x] >= 51 && edats[x] <= 69)
                                     comp += 20.42f;
-                                if(edat[x] == 70)
+                                if(edats[x] == 70)
                                     comp += 32.96f;
                                 }
                             }
@@ -78,7 +80,71 @@ public class Projecte {
                             opcio = 4; 
                             break;
                         }
+                        
                     case 2:
+                        System.out.println("Introdueix l'edat: ");
+                        edat = sc.nextInt();
+                        System.out.println("Introdueix tipus de professió: \n"
+                        +"(Senzilla/Perillosa?)");
+                        professio = sc.next();
+                        if(edat >= 0 && edat <= 30)
+                            comp += 72.89f;
+                        if(edat >= 31 && edat <= 50)
+                            comp += 204.48f;
+                        if(edat >= 51 && edat <= 69)
+                            comp += 379.82f;
+                        if(edat == 70)
+                            comp += 634.50f;
+                        if(professio.contains("Senzilla")){
+                            comp = comp + (comp*5/100);
+                        }else{
+                            comp = comp + (comp*15/100);
+                        }
+                        System.out.println(comp);
+                        break;
+                        
+                    case 3:
+                        System.out.println("Introdueix edat: ");
+                        edat = sc.nextInt();
+                        System.out.println("Tipus d'assegurança?\n"+
+                                "24/professio/privada");
+                        accidents = sc.next();
+                        if(edat >= 0 && edat <= 30)
+                            comp += 7.51;
+                        if(edat >= 31 && edat <= 50)
+                            comp += 10.51;
+                        if(edat >= 51 && edat <= 69)
+                            comp += 25.51;
+                        if(edat == 70)
+                            comp += 50.51;
+                        if(accidents == "24")
+                            comp = comp + (comp*15/100);
+                        if(accidents == "professio")
+                            comp = comp + (comp*10/100);
+                        if(accidents == "privada");
+                            comp = comp + (comp*7/100);
+                        System.out.println(comp);
+                        break;
+                        
+                    case 4:
+                        System.out.println("Quantitat a assegurar: ");
+                        capital = sc.nextInt();
+                        System.out.println("Dies a assegurar: ");
+                        int dies = sc.nextInt();
+                        comp += comp + (capital * dies)/2;
+                        
+                        System.out.println("Assegurança d'hospitalitzacio?");
+                        hosp = sc.nextBoolean();
+                        if(hosp == true) comp+= comp * 0.5;
+                        else comp = comp - (comp * 0.05f);
+                        
+                        System.out.println("Cobertura d'assistència mèdica?");
+                        assistencia = sc.nextBoolean();
+                        if(assistencia == true) comp += comp * 0.3;
+                        else comp = comp - (comp * 0.03f);
+                        System.out.println("El total es de: "+comp);
+                        break;
+                    case 5:
                         
                         System.out.println("Insereix el continent: (60000-210000");
                         capital = sc.nextInt();
@@ -125,6 +191,44 @@ public class Projecte {
                             opcio = 4; 
                             break;
                         }
+                        
+                    case 6:
+                        System.out.println("Indica any de construccio: ");
+                        construccio = sc.nextInt();
+                        if(construccio < 1935) comp += 1200;
+                        if(construccio > 1936 && construccio < 1950) comp += 900;
+                        if(construccio > 1951 && construccio < 1979) comp += 600;
+                        if(construccio > 1980 && construccio < 2011) comp += 300;
+                        System.out.println("S'han reformat les instal·lacions");
+                        instal = sc.nextBoolean();
+                        if(instal == true) comp = comp - (comp*0.3f);
+                        else comp = comp + (comp*0.1f);
+                        System.out.println("Garantia d'aigua?");
+                        gaigua = sc.nextBoolean();
+                        if(gaigua == true) comp = comp + (comp*0.3f);
+                        System.out.println("Numero de plantes: ");
+                        nplantes = sc.nextInt();
+                        if(nplantes < 3) comp = comp - (comp*0.15f);
+                        else if(nplantes > 3 && nplantes < 6) comp = comp + (comp*0.2f);
+                        else if(nplantes > 6) comp = comp + (comp*0.4f);
+                        System.out.println("El total es de: "+comp);
+                        break;
+                        
+                    case 7:
+                        System.out.println("Capital a estalviar: ");
+                        comp = sc.nextInt();
+                        System.out.println("Edat: ");
+                        edat = sc.nextInt();
+                        System.out.println("Edat de jubilacio: ");
+                        jubi = sc.nextInt();
+                        difedat = jubi-edat;
+                        System.out.println("Forma de pagament: ");
+                        pagament = sc.next();
+                        if(pagament == "24"){
+                            comp = comp*3;
+                        }
+                        System.out.println(comp*difedat);
+                        break;
                 }
                 break;
                
