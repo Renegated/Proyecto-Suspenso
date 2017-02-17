@@ -1,13 +1,11 @@
 package projecte;
 import java.sql.*;
 import java.util.Scanner;
+
 public class Projecte {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
-        int opcio, infor, capital, contingut, edat, construccio, nplantes, jubi, difedat;
-        String professio, accidents, pagament;
-        boolean hosp, assistencia, instal, gaigua;
-        float comp = 0f;
+        int opcio, iEnd;
         client persona [] = new client [20];
         
         for(int x = 0; x < persona.length; x++){
@@ -23,7 +21,6 @@ public class Projecte {
                 "2. Tarificador\n"+
                 "3. Informació\n"+
                 "4. Sortir\n");
-        int iEnd;
         opcio = sc.nextInt();
         
         switch(opcio){
@@ -55,107 +52,42 @@ public class Projecte {
                                     break;
                                 }
                     case 2:
-                        System.out.println("Introdueix l'edat: ");
-                        edat = sc.nextInt();
-                        System.out.println("Introdueix tipus de professió: \n"
-                        +"(Senzilla/Perillosa?)");
-                        professio = sc.next();
-                        if(edat >= 0 && edat <= 30)
-                            comp += 72.89f;
-                        if(edat >= 31 && edat <= 50)
-                            comp += 204.48f;
-                        if(edat >= 51 && edat <= 69)
-                            comp += 379.82f;
-                        if(edat == 70)
-                            comp += 634.50f;
-                        if(professio.contains("Senzilla")){
-                            comp = comp + (comp*5/100);
-                        }else{
-                            comp = comp + (comp*15/100);
-                        }
-                        System.out.println(comp);
+                        Vida();
+                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                                iEnd = sc.nextInt();
+                                if(iEnd == 1)break;
+                                else if(iEnd == 2){
+                                    System.out.println("Gracies per confiar en nosaltres.");
+                                    opcio = 4; 
+                                    break;
+                                }
                         break;
                         
                     case 3:
-                        System.out.println("Introdueix edat: ");
-                        edat = sc.nextInt();
-                        System.out.println("Tipus d'assegurança?\n"+
-                                "24/professio/privada");
-                        accidents = sc.next();
-                        if(edat >= 0 && edat <= 30)
-                            comp += 7.51;
-                        if(edat >= 31 && edat <= 50)
-                            comp += 10.51;
-                        if(edat >= 51 && edat <= 69)
-                            comp += 25.51;
-                        if(edat == 70)
-                            comp += 50.51;
-                        if(accidents == "24")
-                            comp = comp + (comp*15/100);
-                        if(accidents == "professio")
-                            comp = comp + (comp*10/100);
-                        if(accidents == "privada");
-                            comp = comp + (comp*7/100);
-                        System.out.println(comp);
+                        Accident();
+                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                                iEnd = sc.nextInt();
+                                if(iEnd == 1)break;
+                                else if(iEnd == 2){
+                                    System.out.println("Gracies per confiar en nosaltres.");
+                                    opcio = 4; 
+                                    break;
+                                }
                         break;
                         
                     case 4:
-                        System.out.println("Quantitat a assegurar: ");
-                        capital = sc.nextInt();
-                        System.out.println("Dies a assegurar: ");
-                        int dies = sc.nextInt();
-                        comp += comp + (capital * dies)/2;
-                        
-                        System.out.println("Assegurança d'hospitalitzacio?");
-                        hosp = sc.nextBoolean();
-                        if(hosp == true) comp+= comp * 0.5;
-                        else comp = comp - (comp * 0.05f);
-                        
-                        System.out.println("Cobertura d'assistència mèdica?");
-                        assistencia = sc.nextBoolean();
-                        if(assistencia == true) comp += comp * 0.3;
-                        else comp = comp - (comp * 0.03f);
-                        System.out.println("El total es de: "+comp);
+                        IncapTemp();
+                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                                iEnd = sc.nextInt();
+                                if(iEnd == 1)break;
+                                else if(iEnd == 2){
+                                    System.out.println("Gracies per confiar en nosaltres.");
+                                    opcio = 4; 
+                                    break;
+                                }
                         break;
                     case 5:
-                        
-                        System.out.println("Insereix el continent: (60000-210000");
-                        capital = sc.nextInt();
-                        System.out.println("Insereix el contingut: (21000-50000");
-                        contingut = sc.nextInt();
-                        if(capital >= 60000 && capital <= 90000 && contingut >= 21000 && contingut <= 30000)
-                            comp += 116.75f;
-                        if(capital >= 91000 && capital <= 120000 && contingut >= 21000 && contingut <= 30000)
-                            comp += 146.75f;
-                        if(capital >= 121000 && capital <= 150000 && contingut >= 21000 && contingut <= 30000)
-                            comp += 176.75f;
-                        if(capital >= 151000 && capital <= 180000 && contingut >= 21000 && contingut <= 30000)
-                            comp += 206.75f;
-                        if(capital >= 181000 && capital <= 210000 && contingut >= 21000 && contingut <= 30000)
-                            comp += 236.75f;
-                        
-                        if(capital >= 60000 && capital <= 90000 && contingut >= 31000 && contingut <= 40000)
-                            comp += 168.25f;
-                        if(capital >= 91000 && capital <= 120000 && contingut >= 31000 && contingut <= 40000)
-                            comp += 218.25f;
-                        if(capital >= 121000 && capital <= 15000 && contingut >= 31000 && contingut <= 40000)
-                            comp += 268.25f;
-                        if(capital >= 151000 && capital <= 180000 && contingut >= 31000 && contingut <= 40000)
-                            comp += 318.25f;
-                        if(capital >= 181000 && capital <= 210000 && contingut >= 31000 && contingut <= 40000)
-                            comp += 368.25f;
-                        
-                        if(capital >= 60000 && capital <= 90000 && contingut >= 41000 && contingut <= 50000)
-                            comp += 219.68f;
-                        if(capital >= 91000 && capital <= 120000 && contingut >= 41000 && contingut <= 50000)
-                            comp += 289.68f;
-                        if(capital >= 121000 && capital <= 150000 && contingut >= 41000 && contingut <= 50000)
-                            comp += 359.68f;
-                        if(capital >= 151000 && capital <= 180000 && contingut >= 41000 && contingut <= 50000)
-                            comp += 429.68f;
-                        if(capital >= 181000 && capital <= 210000 && contingut >= 21000 && contingut <= 50000)
-                            comp += 499.68f;
-                        System.out.println(comp + "\n");
+                        Llar();
                 System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                         iEnd = sc.nextInt();
                         if(iEnd == 1)break;
@@ -166,41 +98,27 @@ public class Projecte {
                         }
                         
                     case 6:
-                        System.out.println("Indica any de construccio: ");
-                        construccio = sc.nextInt();
-                        if(construccio < 1935) comp += 1200;
-                        if(construccio > 1936 && construccio < 1950) comp += 900;
-                        if(construccio > 1951 && construccio < 1979) comp += 600;
-                        if(construccio > 1980 && construccio < 2011) comp += 300;
-                        System.out.println("S'han reformat les instal·lacions");
-                        instal = sc.nextBoolean();
-                        if(instal == true) comp = comp - (comp*0.3f);
-                        else comp = comp + (comp*0.1f);
-                        System.out.println("Garantia d'aigua?");
-                        gaigua = sc.nextBoolean();
-                        if(gaigua == true) comp = comp + (comp*0.3f);
-                        System.out.println("Numero de plantes: ");
-                        nplantes = sc.nextInt();
-                        if(nplantes < 3) comp = comp - (comp*0.15f);
-                        else if(nplantes > 3 && nplantes < 6) comp = comp + (comp*0.2f);
-                        else if(nplantes > 6) comp = comp + (comp*0.4f);
-                        System.out.println("El total es de: "+comp);
+                        Comunitats();
+                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                                iEnd = sc.nextInt();
+                                if(iEnd == 1)break;
+                                else if(iEnd == 2){
+                                    System.out.println("Gracies per confiar en nosaltres.");
+                                    opcio = 4; 
+                                    break;
+                                }
                         break;
                         
                     case 7:
-                        System.out.println("Capital a estalviar: ");
-                        comp = sc.nextInt();
-                        System.out.println("Edat: ");
-                        edat = sc.nextInt();
-                        System.out.println("Edat de jubilacio: ");
-                        jubi = sc.nextInt();
-                        difedat = jubi-edat;
-                        System.out.println("Forma de pagament: ");
-                        pagament = sc.next();
-                        if("24".equals(pagament)){
-                            comp = comp*3;
-                        }
-                        System.out.println(comp*difedat);
+                        Estalvis();
+                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                                iEnd = sc.nextInt();
+                                if(iEnd == 1)break;
+                                else if(iEnd == 2){
+                                    System.out.println("Gracies per confiar en nosaltres.");
+                                    opcio = 4; 
+                                    break;
+                                }
                         break;
                 }
                 break;
@@ -573,4 +491,159 @@ public static void familiar(){
     System.out.println("Total: "+comp + "\n");
                         
 }
+    public static void Vida(){
+        Scanner sc = new Scanner(System.in);
+        int edat;
+        float comp = 0.0f;
+        String professio;
+        System.out.println("Introdueix l'edat: ");
+        edat = sc.nextInt();
+        System.out.println("Introdueix tipus de professió: \n"
+        +"(Senzilla/Perillosa?)");
+        professio = sc.next();
+        if(edat >= 0 && edat <= 30)
+            comp += 72.89f;
+        if(edat >= 31 && edat <= 50)
+            comp += 204.48f;
+        if(edat >= 51 && edat <= 69)
+            comp += 379.82f;
+        if(edat == 70)
+            comp += 634.50f;
+        if(professio.contains("Senzilla")){
+            comp = comp + (comp*5/100);
+        }else{ comp = comp + (comp*15/100);
+        }
+        System.out.println(comp);
+    }
+    
+    public static void Accident(){
+        Scanner sc = new Scanner(System.in);
+        int edat;
+        float comp = 0.0f;
+        String accidents;
+        System.out.println("Introdueix edat: ");
+        edat = sc.nextInt();
+        System.out.println("Tipus d'assegurança?\n"+"24/professio/privada");
+        accidents = sc.next();
+        if(edat >= 0 && edat <= 30) comp += 7.51;
+        if(edat >= 31 && edat <= 50) comp += 10.51;
+        if(edat >= 51 && edat <= 69) comp += 25.51;
+        if(edat == 70) comp += 50.51;
+        if(accidents == "24") comp = comp + (comp*15/100);
+        if(accidents == "professio") comp = comp + (comp*10/100);
+        if(accidents == "privada"); comp = comp + (comp*7/100);
+        System.out.println(comp);
+    }
+    
+    public static void IncapTemp(){
+        Scanner sc = new Scanner(System.in);
+        int capital;
+        float comp = 0.0f;
+        boolean hosp, assistencia;
+        System.out.println("Quantitat a assegurar: ");
+        capital = sc.nextInt();
+        System.out.println("Dies a assegurar: ");
+        int dies = sc.nextInt();
+        comp += comp + (capital * dies)/2;
+                        
+        System.out.println("Assegurança d'hospitalitzacio?");
+        hosp = sc.nextBoolean();
+        if(hosp == true) comp+= comp * 0.5;
+        else comp = comp - (comp * 0.05f);
+                        
+        System.out.println("Cobertura d'assistència mèdica?");
+        assistencia = sc.nextBoolean();
+        if(assistencia == true) comp += comp * 0.3;
+        else comp = comp - (comp * 0.03f);
+        System.out.println("El total es de: "+comp);
+    }
+    
+    public static void Llar(){
+        Scanner sc = new Scanner(System.in);
+        int capital, contingut;
+        float comp = 0.0f;
+        System.out.println("Insereix el continent: (60000-210000");
+        capital = sc.nextInt();
+        System.out.println("Insereix el contingut: (21000-50000");
+        contingut = sc.nextInt();
+            if(capital >= 60000 && capital <= 90000 && contingut >= 21000 && contingut <= 30000)
+                comp += 116.75f;
+            if(capital >= 91000 && capital <= 120000 && contingut >= 21000 && contingut <= 30000)
+                comp += 146.75f;
+            if(capital >= 121000 && capital <= 150000 && contingut >= 21000 && contingut <= 30000)
+                comp += 176.75f;
+            if(capital >= 151000 && capital <= 180000 && contingut >= 21000 && contingut <= 30000)
+                comp += 206.75f;
+            if(capital >= 181000 && capital <= 210000 && contingut >= 21000 && contingut <= 30000)
+                comp += 236.75f;
+                        
+            if(capital >= 60000 && capital <= 90000 && contingut >= 31000 && contingut <= 40000)
+                comp += 168.25f;
+            if(capital >= 91000 && capital <= 120000 && contingut >= 31000 && contingut <= 40000)
+                 comp += 218.25f;
+            if(capital >= 121000 && capital <= 15000 && contingut >= 31000 && contingut <= 40000)
+                comp += 268.25f;
+            if(capital >= 151000 && capital <= 180000 && contingut >= 31000 && contingut <= 40000)
+                comp += 318.25f;
+            if(capital >= 181000 && capital <= 210000 && contingut >= 31000 && contingut <= 40000)
+                comp += 368.25f;
+                        
+            if(capital >= 60000 && capital <= 90000 && contingut >= 41000 && contingut <= 50000)
+                comp += 219.68f;
+            if(capital >= 91000 && capital <= 120000 && contingut >= 41000 && contingut <= 50000)
+                comp += 289.68f;
+            if(capital >= 121000 && capital <= 150000 && contingut >= 41000 && contingut <= 50000)
+                comp += 359.68f;
+            if(capital >= 151000 && capital <= 180000 && contingut >= 41000 && contingut <= 50000)
+                comp += 429.68f;
+            if(capital >= 181000 && capital <= 210000 && contingut >= 21000 && contingut <= 50000)
+                comp += 499.68f;
+            System.out.println(comp + "\n");
+    }
+    
+    public static void Comunitats(){
+        Scanner sc = new Scanner(System.in);
+        int construccio, nplantes;
+        float comp = 0.0f;
+        boolean instal, gaigua;
+        
+        System.out.println("Indica any de construccio: ");
+            construccio = sc.nextInt();
+            if(construccio < 1935) comp += 1200;
+            if(construccio > 1936 && construccio < 1950) comp += 900;
+            if(construccio > 1951 && construccio < 1979) comp += 600;
+            if(construccio > 1980 && construccio < 2011) comp += 300;
+        System.out.println("S'han reformat les instal·lacions");
+            instal = sc.nextBoolean();
+            if(instal == true) comp = comp - (comp*0.3f);
+            else comp = comp + (comp*0.1f);
+        System.out.println("Garantia d'aigua?");
+            gaigua = sc.nextBoolean();
+            if(gaigua == true) comp = comp + (comp*0.3f);
+        System.out.println("Numero de plantes: ");
+            nplantes = sc.nextInt();
+            if(nplantes < 3) comp = comp - (comp*0.15f);
+            else if(nplantes > 3 && nplantes < 6) comp = comp + (comp*0.2f);
+            else if(nplantes > 6) comp = comp + (comp*0.4f);
+        System.out.println("El total es de: "+comp);
+    }
+    
+    public static void Estalvis(){
+        Scanner sc = new Scanner(System.in);
+        float comp = 0.0f;
+        int edat, jubi, difedat;
+        String pagament;
+        System.out.println("Capital a estalviar: ");
+            comp = sc.nextInt();
+        System.out.println("Edat: ");
+            edat = sc.nextInt();
+        System.out.println("Edat de jubilacio: ");
+            jubi = sc.nextInt();
+            difedat = jubi-edat;
+        System.out.println("Forma de pagament: ");
+            pagament = sc.next();
+            if("24".equals(pagament))
+                comp = comp*3;
+        System.out.println(comp*difedat);
+    }
 }
