@@ -3,9 +3,9 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Projecte {
+    public static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int opcio, iEnd;
         client persona [] = new client [20];
         
@@ -185,7 +185,6 @@ public class Projecte {
             }
 
             for(int x = 0; x < 1; x++){
-            Scanner sc = new Scanner(System.in);
             System.out.print("Introdueix nom del client: ");
             persona[x].nom = sc.next();
             System.out.print("Cognoms: ");
@@ -210,8 +209,11 @@ public class Projecte {
         }
     }
 
+            /******************
+            *   ASSEGURANCES  *
+            *******************/
+    
     public static void calculFamiliar(){
-        Scanner sc = new Scanner(System.in);
         int edats [] = new int [6];
         float comp = 0f;
         System.out.print("Nombre de persones: ");
@@ -248,7 +250,6 @@ public class Projecte {
         int edat;
         float comp = 0.0f;
         String professio;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix l'edat: ");
         edat = sc.nextInt();
         System.out.println("Introdueix tipus de professió: \n"
@@ -273,7 +274,6 @@ public class Projecte {
         int edat;
         float comp = 0.0f;
         String accidents;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix edat: ");
         edat = sc.nextInt();
         System.out.println("Tipus d'assegurança?\n"+"24/professio/privada");
@@ -292,7 +292,6 @@ public class Projecte {
         int capital;
         float comp = 0.0f;
         boolean hosp, assistencia;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Quantitat a assegurar: ");
         capital = sc.nextInt();
         System.out.println("Dies a assegurar: ");
@@ -314,7 +313,6 @@ public class Projecte {
     public static void calculLlar(){
         int capital, contingut;
         float comp = 0.0f;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Insereix el continent: (60000-210000");
         capital = sc.nextInt();
         System.out.println("Insereix el contingut: (21000-50000");
@@ -358,7 +356,6 @@ public class Projecte {
         int construccio, nplantes;
         float comp = 0.0f;
         boolean instal, gaigua;
-        Scanner sc = new Scanner(System.in);
         System.out.println("Indica any de construccio: ");
             construccio = sc.nextInt();
             if(construccio < 1935) comp += 1200;
@@ -383,7 +380,6 @@ public class Projecte {
     public static void calculEstalvis(){
         float comp = 0.0f;
         int edat, jubi, difedat;
-        Scanner sc = new Scanner(System.in);
         String pagament;
         System.out.println("Capital a estalviar: ");
             comp = sc.nextInt();
@@ -396,7 +392,6 @@ public class Projecte {
             pagament = sc.next();
             if("24".equals(pagament))
                 comp = comp*3;
-        System.out.println(comp*difedat);
     }
     
             /****************************
@@ -404,7 +399,6 @@ public class Projecte {
             ****************************/
     
     public static void Informacio(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix el tipus d'assegurança: \n"+
         "1. Familiar\n"+
         "2. Vida\n"+
