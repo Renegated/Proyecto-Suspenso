@@ -2,6 +2,7 @@ package projecte;
 import java.util.Scanner;
 
 public class Projecte extends metodes {
+    //Scanner global
     public static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
@@ -28,6 +29,7 @@ public class Projecte extends metodes {
             /****************************
             ****** Pressupostador *******
             ****************************/
+            
             case 1:
                 System.out.println("Introdueix el tipus d'assegurança: \n"+
                 "1. Familiar\n"+
@@ -42,6 +44,7 @@ public class Projecte extends metodes {
                 
                 switch(tipus){
                     case 1:
+                        //Assegurança Familiar
                         calculFamiliar();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();
@@ -52,6 +55,7 @@ public class Projecte extends metodes {
                                     break;
                                 }
                     case 2:
+                        //Assegurança Vida
                         calculVida();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();
@@ -64,6 +68,7 @@ public class Projecte extends metodes {
                         break;
                         
                     case 3:
+                        //Assegurança Accident
                         calculAccident();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();
@@ -76,6 +81,7 @@ public class Projecte extends metodes {
                         break;
                         
                     case 4:
+                        //Assegurança Incapacitat temporal
                         calculIncapacitatTemporal();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();
@@ -87,6 +93,7 @@ public class Projecte extends metodes {
                                 }
                         break;
                     case 5:
+                        //Assegurança Llar
                         calculLlar();
                 System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                         iEnd = sc.nextInt();
@@ -98,6 +105,7 @@ public class Projecte extends metodes {
                         }
                         
                     case 6:
+                        //Assegurança Comunitats
                         calculComunitats();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();
@@ -110,6 +118,7 @@ public class Projecte extends metodes {
                         break;
                         
                     case 7:
+                        //Assegurança Estalvis
                         calculEstalvis();
                         System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
                                 iEnd = sc.nextInt();

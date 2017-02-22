@@ -18,6 +18,8 @@ public class metodes{
         "6. Comunitats\n"+
         "7. Estalvis\n");
         int tipus = sc.nextInt();
+        
+            //Menú assegurança Familiar
             switch(tipus){
                 case 1:
                     System.out.println("Sector: \n"+
@@ -34,39 +36,60 @@ public class metodes{
 
             int infor = sc.nextInt();
                 switch(infor){
+                        //Servei funerari
                     case 1:
                         System.out.println("Servei personalitzat d'enterrament o incineració per a cadascun dels assegurats.\n");
                         break;
+                        
+                        //Nínxol
                     case 2:
                         System.out.println("Possibilitat d'obtenir un nínxol en propietat o lloguer.\n");
                         break;
+                        
+                        //Trasllat
                     case 3:
                         System.out.println("Cobertura de trasllat, nacional i internacional, amb lliure elecció de cementiri dins del territori nacional.\n");
                         break;
+                        
+                        //Assessoria jurídica telèfonica
                     case 4:
                         System.out.println("Un equip d'abogats atendrà qualsevol consulta jurídica tant personal com familiar.\n");
                         break;
+                        
+                        //Servei d'orientació mèdica telèfonica
                     case 5:
                         System.out.println("Un equip de metges que orientarà en consultes de salut les 24 horas, també a través de videoconferència.\n");
                         break;
+                        
+                        //Avantsalut
                     case 6:
                         System.out.println("Accés a la medicina privada i a tot un conjunt de serveis de salut"
                                 + "\namb descompes especials i múltiples serveis gratuïts amb serveis mèdics, dentals, de benestar i assistencials.\n");
                         break;
+                        
+                        //Testament online
                     case 7:
                         System.out.println("Garantitza assessorament per a la redacció del testament hereditari, vital o solidari, comodament des de la llar.\n");
                         break;
+                        
+                        //Borrat digital
                     case 8:
                         System.out.println("Gestió final de la vida digital.\n");
                         break;
+                        
+                        //El meu llegat
                     case 9:
                         System.out.println("Ofereix un servei per a cuidar la imatge i la reputació online un cop s'hagi produït l'òbit.\n");
                         break;
+                        
+                        //Servei gestoria
                     case 10:
                         System.out.println("Ofereix la tramitació i obtenció dels diversos documents que es requeriran.\n");
                         break;
                     }
                     break;
+                    
+                    //Informació vida
                 case 2:
                     System.out.println("Un capital contractat en pòlissa als beneficiaris designats, després de la mort de l'assegurat,"
                             + "\nsi aquesta ocurreix abans de la data de venciment de la seva cobertura. Està especialment indicat per a persones "
@@ -74,11 +97,15 @@ public class metodes{
                             + "\nPer a persones amb cargues familiars (hipoteques)."
                             + "\nPer a persones que desitjen que els seus hereditaris disposin de liquidació suficient per a fer front a l'impost sobre successions i donacions.\n");
                     break;
+                    
+                    //Informació Accident
                 case 3:
                     System.out.println("En cas de mort o invalidesa per accident, rapidesa en la cobertura para poder pagar els gastos inicials.\n"
                             + "\nSense controls mèdics ni extensos tràmits.\n"
                             + "\nGaranties cobertes: mort per accident, invalidesa permanent parcial o absoluta, avantsalud i hospitalització.\n");
                     break;
+                    
+                    //Informació Incapacitat temporal
                 case 4:
                     System.out.println("Sector: \n"+
                     "1. Màximes garanties en base a barem\n"+
@@ -90,6 +117,8 @@ public class metodes{
                     "7. Flexibilitat"+
                     "8. Avantsalud\n");
                     infor = sc.nextInt();
+                    
+                    //Menú informació Incapacitat temporal
                     switch(infor){
                         case 1:
                             System.out.println("Pòlissa mitjançant 'barem d'indemnitzacions' establert segons tipologia enfermetat."
@@ -119,6 +148,8 @@ public class metodes{
                             System.out.println("Total atenció i accés a medicina privada i a tot un conjunt de serveis de salut amb descomptes especials.");
                         }
                         break;
+                        
+                    //Informació Llar
                 case 5:
                     System.out.println("Cobertures: \n"+
                             "Incendis, explosió, fum i caiguda de llamps.\n"+
@@ -130,6 +161,8 @@ public class metodes{
                             "Responsabilitat civil familiar extracontractual.\n"+
                             "Trencament de cristalls, màrmols i sanitari.\n");
                     break;
+                    
+                    //Informació Comunitats
                 case 6:
                     System.out.println("Cobertures: \n"+
                             "Incendi, explosió, fum i caiguda de llamps.\n"+
@@ -143,6 +176,8 @@ public class metodes{
                             "Vessament, fuga o escapament accidental de les instal·lacions automàtiques d'extinció d'incendis.\n"+
                             "Responsabilitat civil extracontractual, fiança, defensa i reclamació.\n");
                     break;
+                    
+                    //Informació estalvis
                 case 7:
                     System.out.println("Avantatges: \n"+
                             "Flexibilitat d'aportament d'estalvis\n"+
@@ -199,9 +234,6 @@ public class metodes{
             persona[x].telefon = sc.nextInt();
             System.out.print("Compte corrent: ");
             persona[x].cc = sc.nextLong();
-            System.out.print("Prima total: ");
-            persona[x].prima = sc.nextInt();
-            sc.nextLine();
         }
     }
 
@@ -212,28 +244,29 @@ public class metodes{
     public static void calculFamiliar(){
         int edats [] = new int [6];
         float comp = 0f;
+        
         System.out.print("Nombre de persones: ");
         int persones = sc.nextInt();
-        System.out.print("Capital: (2000-10000)");
+        System.out.print("Capital entre 2000 i 10000: ");
         int capital = sc.nextInt();
+        
         for(int i = 2000; i<=10000; i=i + 500){
-        if(capital == i){
-            for(int x = 1; x < persones+1; x++){
-                System.out.print("Edat"+x+": ");
-                edats[x] = sc.nextInt();
-                if(edats[x] >= 0 && edats[x] <= 30)
-                    comp += 6.04f;
-                if(edats[x] >= 31 && edats[x] <= 50)
-                    comp += 10.06f;
-                if(edats[x] >= 51 && edats[x] <= 69)
-                    comp += 20.42f;
-                if(edats[x] == 70)
-                    comp += 32.96f;
-            }
+            
+            if(capital == i){
+                
+                for(int x = 1; x < persones+1; x++){
+                        System.out.print("Edat"+x+": ");
+                        edats[x] = sc.nextInt();
+                        
+                    if(edats[x] >= 0 && edats[x] <= 30) comp += 6.04f;
+                    if(edats[x] >= 31 && edats[x] <= 50) comp += 10.06f;
+                    if(edats[x] >= 51 && edats[x] <= 69) comp += 20.42f;
+                    if(edats[x] == 70) comp += 32.96f;
+                }
         }
     }
 
-        System.out.print("Complementari hospital: (1:Si 0:No");
+        System.out.print("(1:Si 0:No) Complementari hospital: ");
         int chosp = sc.nextInt();
         if(chosp == 1)
             comp += 0.45f;
