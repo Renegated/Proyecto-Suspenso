@@ -42,6 +42,7 @@ public class Projecte extends metodes {
      
                 int tipus = sc.nextInt();
                 
+                //Menu assegurança Familiar
                 switch(tipus){
                     case 1:
                         //Assegurança Familiar
