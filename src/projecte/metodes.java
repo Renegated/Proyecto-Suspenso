@@ -268,8 +268,7 @@ public class metodes{
 
         System.out.print("(1:Si 0:No) Complementari hospital: ");
         int chosp = sc.nextInt();
-        if(chosp == 1)
-            comp += 0.45f;
+        if(chosp == 1) comp += 0.45f;
 
         System.out.println("Total: "+comp + "\n");
                         
