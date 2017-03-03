@@ -121,30 +121,38 @@ public class informacio{
                     //Menú informació Incapacitat temporal
                     switch(infor){
                         case 1:
+                            //Màximes garanties en base a barem
                             System.out.println("Pòlissa mitjançant 'barem d'indemnitzacions' establert segons tipologia enfermetat."
                                     + "\nPel qual s'abona la indemnització segons el diagnostic, i pel periode de dies establerts.");
                             break;
                         case 2:
+                            //Amplia cobertura a diferents perfils
                             System.out.println("Dirigit a un ampli colectiu de persones, especialment autònoms, i també altres persones que treballent per compte aliè, "
                                     + "\ncom les persones amb altres perfils (ames de casa, estudiants, parats)");
                             break;
                         case 3:
+                            //Ampliació garanties per incapacitat temporal
                             System.out.println("La indemnització serà efectiva des del primer dia.");
                             break;
                         case 4:
+                            //Sense reconeixement mèdic previ
                             System.out.println("No es necessita reconeixement previ para la contractació de la pòlissa.");
                             break;
                         case 5:
+                            //Atenció mèdica telèfonica 24hrs
                             System.out.println("Disponibilitat telèfonica 24hrs d'un equip de metges per oferir assesorament mèdic en casos d'urgencia, "
                                     + "\nenfermetat, accident o davant qualsevol situació mèdica, psicològica o social.");
                             break;
                         case 6:
+                            //Compatibilitat amb altres assegurançes
                             System.out.println("Compatibilitat amb altres assegurançes");
                             break;
                         case 7:
+                            //Flexibilitat
                             System.out.println("Tant en la possibilitat d'escollir de capital de contractació com en la forma de pagament.");
                             break;
                         case 8:
+                            //Avantsalud
                             System.out.println("Total atenció i accés a medicina privada i a tot un conjunt de serveis de salut amb descomptes especials.");
                         }
                         break;

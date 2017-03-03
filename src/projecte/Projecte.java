@@ -1,16 +1,19 @@
 package projecte;
 import java.util.Scanner;
-
+/**
+ * Menú princila i execució dels mètodes
+ * 
+ * @author Albert i Enric
+ */
 public class Projecte extends metodes {
     //Scanner global
     public static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
         int opcio, iEnd;
-        client persona [] = new client [20];
-        
+        Projecte persona [] = new Projecte [20];
         for(int x = 0; x < persona.length; x++){
-            persona[x] = new client();
+            persona[x] = new Projecte();
         }
         
         do{
@@ -42,7 +45,6 @@ public class Projecte extends metodes {
      
                 int tipus = sc.nextInt();
                 
-                //Menu assegurança Familiar
                 switch(tipus){
                     case 1:
                         //Assegurança Familiar
@@ -133,10 +135,7 @@ public class Projecte extends metodes {
                 }
                 break;
                
-            /****************************
-            ******** Alta client ********
-            ****************************/
-                
+            //Alta client
             case 2:
                 AltaClient();
                 System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
@@ -148,16 +147,12 @@ public class Projecte extends metodes {
                     break;
                 }
                 
-            /**************************************
-            ******** Informació assegurances ******
-            ***************************************/
+            //Informació assegurances
             case 3:
                 Informacio();
                 break;
                 
-            /*****************************
-            ******* Sortir programa ******
-            ******************************/
+            //Sortir programa
                 
             case 4:
                 System.out.println("Has sortit del programa");

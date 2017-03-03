@@ -6,59 +6,7 @@ import static projecte.Projecte.sc;
  * 
  * @author Albert i Enric
  */
-public class metodes extends informacio{
-     
-    /****************************************
-    ****** Classe composta alta client ******
-    ****************************************/
-    
-    static class client{
-        String nom;
-        String cognoms;
-        String dni;
-        String data_naix;
-        String direccio;
-        char sexe;
-        int telefon;
-        long cc;
-        int prima;
-    }
-
-            /******************
-            *   ALTA CLIENT   *
-            *******************/
-    
-    public static void AltaClient(){
-            Projecte.client persona [] = new Projecte.client [20];
-            for(int x = 0; x < persona.length; x++){
-                persona[x] = new Projecte.client();
-            }
-
-            for(int x = 0; x < 1; x++){
-            System.out.print("Introdueix nom del client: ");
-            persona[x].nom = sc.next();
-            System.out.print("Cognoms: ");
-            sc.skip("\n");
-            persona[x].cognoms = sc.nextLine();
-            System.out.print("Data naixement: ");
-            persona[x].data_naix = sc.next();
-            System.out.print("Sexe: ");
-            persona[x].sexe = sc.next().charAt(0);
-            System.out.print("Dni: ");
-            persona[x].dni = sc.next();
-            System.out.print("Direccio: ");
-            persona[x].direccio = sc.nextLine();
-            sc.nextLine();
-            System.out.print("Telèfon: ");
-            persona[x].telefon = sc.nextInt();
-            System.out.print("Compte corrent: ");
-            persona[x].cc = sc.nextLong();
-        }
-    }
-
-            /******************
-            *   ASSEGURANCES  *
-            *******************/
+public class metodes extends clients{
     
     public static void calculFamiliar(){
         int edats [] = new int [6];
@@ -69,7 +17,7 @@ public class metodes extends informacio{
         System.out.print("Capital entre 2000 i 10000: ");
         int capital = sc.nextInt();
         
-        for(int i = 2000; i<=10000; i=i + 500){
+        for(int i = 2000; i<=10000; i+= 500){
             
             if(capital == i){
                 
