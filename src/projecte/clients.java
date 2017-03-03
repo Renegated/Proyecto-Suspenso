@@ -6,10 +6,7 @@ import static projecte.Projecte.sc;
  * @author Albert i Enric
  */
      
-    /****************************************
-    ****** Classe composta alta client ******
-    ****************************************/
-    
+    //Classe composta variables clients
     public class clients extends informacio{
         String nom;
         String cognoms;
@@ -20,11 +17,8 @@ import static projecte.Projecte.sc;
         int telefon;
         long cc;
         int prima;
-
-            /******************
-            *   ALTA CLIENT   *
-            *******************/
     
+        //Mètode Alta Clients
     public static void AltaClient(){
             Projecte persona [] = new Projecte [20];
             for(int x = 0; x < persona.length; x++){
