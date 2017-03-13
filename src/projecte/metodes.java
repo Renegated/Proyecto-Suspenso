@@ -22,8 +22,8 @@ public class metodes extends clients{
             if(capital == i){
                 
                 for(int x = 1; x < persones+1; x++){
-                        System.out.print("Edat"+x+": ");
-                        edats[x] = sc.nextInt();
+                    System.out.print("Edat"+x+": ");
+                    edats[x] = sc.nextInt();
                         
                     if(edats[x] >= 0 && edats[x] <= 30) comp += 6.04f;
                     if(edats[x] >= 31 && edats[x] <= 50) comp += 10.06f;
@@ -173,19 +173,12 @@ public class metodes extends clients{
     }
     
     public static void calculEstalvis(){
-        float comp = 0.0f;
-        int edat, jubi, difedat;
+        float comp, rendibilitat;
         String pagament;
         System.out.println("Capital a estalviar: ");
             comp = sc.nextInt();
-        System.out.println("Edat: ");
-            edat = sc.nextInt();
-        System.out.println("Edat de jubilacio: ");
-            jubi = sc.nextInt();
-            difedat = jubi-edat;
-        System.out.println("Forma de pagament: ");
-            pagament = sc.next();
-            if("24".equals(pagament))
-                comp = comp*3;
+            comp = comp*3;
+            rendibilitat = comp/10000;
+        System.out.println("Hi ha una rendibilitat del: "+rendibilitat);
     }
 }

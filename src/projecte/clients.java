@@ -8,15 +8,9 @@ import static projecte.Projecte.sc;
      
     //Classe composta variables clients
     public class clients extends informacio{
-        String nom;
-        String cognoms;
-        String dni;
-        String data_naix;
-        String direccio;
+        String nom, cognoms, dni, data_naix, direccio, cc;
         char sexe;
-        int telefon;
-        long cc;
-        int prima;
+        int telefon, prima;
     
         //Mètode Alta Clients
     public static void AltaClient(){
@@ -43,7 +37,7 @@ import static projecte.Projecte.sc;
             System.out.print("Telèfon: ");
             persona[x].telefon = sc.nextInt();
             System.out.print("Compte corrent: ");
-            persona[x].cc = sc.nextLong();
+            persona[x].cc = sc.next();
         }
     }
 }

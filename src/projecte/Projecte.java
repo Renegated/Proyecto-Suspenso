@@ -1,7 +1,7 @@
 package projecte;
 import java.util.Scanner;
 /**
- * Menú princila i execució dels mètodes
+ * Menú principal i execució dels mètodes
  * 
  * @author Albert i Enric
  */
@@ -20,28 +20,17 @@ public class Projecte extends metodes {
           /****************************
           ****** Menú principal ******
           ****************************/
-        System.out.println("Menú: \n"+
-                "1. Pressupost assegurança\n"+
-                "2. Alta client\n"+
-                "3. Informació\n"+
-                "4. Sortir\n");
-        opcio = sc.nextInt();
+            menuprincipal();
+            opcio = sc.nextInt();
         
         switch(opcio){
             
             /****************************
-            ****** Pressupostador *******
+            ** Pressupost assegurança ***
             ****************************/
             
             case 1:
-                System.out.println("Introdueix el tipus d'assegurança: \n"+
-                "1. Familiar\n"+
-                "2. Vida\n"+
-                "3. Accident\n"+
-                "4. Incapacitat temporal\n"+
-                "5. Llar\n"+
-                "6. Comunitats\n"+
-                "7. Estalvis\n");
+                menupressupost();
      
                 int tipus = sc.nextInt();
                 
@@ -49,23 +38,21 @@ public class Projecte extends metodes {
                     case 1:
                         //Assegurança Familiar
                         calculFamiliar();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                        desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                     case 2:
                         //Assegurança Vida
                         calculVida();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                            desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                         break;
@@ -73,12 +60,11 @@ public class Projecte extends metodes {
                     case 3:
                         //Assegurança Accident
                         calculAccident();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                            desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                         break;
@@ -86,36 +72,33 @@ public class Projecte extends metodes {
                     case 4:
                         //Assegurança Incapacitat temporal
                         calculIncapacitatTemporal();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                        desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                         break;
                     case 5:
                         //Assegurança Llar
                         calculLlar();
-                System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                        desitja();
                         iEnd = sc.nextInt();
                         if(iEnd == 1)break;
                         else if(iEnd == 2){
-                            System.out.println("Gracies per confiar en nosaltres.");
-                            opcio = 4; 
+                            tancar();
                             break;
                         }
                         
                     case 6:
                         //Assegurança Comunitats
                         calculComunitats();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                        desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                         break;
@@ -123,12 +106,11 @@ public class Projecte extends metodes {
                     case 7:
                         //Assegurança Estalvis
                         calculEstalvis();
-                        System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                        desitja();
                                 iEnd = sc.nextInt();
                                 if(iEnd == 1)break;
                                 else if(iEnd == 2){
-                                    System.out.println("Gracies per confiar en nosaltres.");
-                                    opcio = 4; 
+                                    tancar();
                                     break;
                                 }
                         break;
@@ -138,12 +120,11 @@ public class Projecte extends metodes {
             //Alta client
             case 2:
                 AltaClient();
-                System.out.println("Desitja fer alguna cosa mes? (1:Si 2:No)");
+                desitja();
                 iEnd = sc.nextInt();
                 if(iEnd == 1)break;
                 else if(iEnd == 2){
-                    System.out.println("Gracies per confiar en nosaltres.");
-                    opcio = 4; 
+                    tancar();
                     break;
                 }
                 
@@ -153,7 +134,6 @@ public class Projecte extends metodes {
                 break;
                 
             //Sortir programa
-                
             case 4:
                 System.out.println("Has sortit del programa");
                 break;
