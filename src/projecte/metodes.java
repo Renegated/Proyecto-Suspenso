@@ -1,5 +1,6 @@
 package projecte;
 
+import java.sql.*;
 import static projecte.Projecte.sc;
 /**
  * Conté tots els calculs de les assegurances.
@@ -181,4 +182,37 @@ public class metodes extends clients{
             rendibilitat = comp/10000;
         System.out.println("Hi ha una rendibilitat del: "+rendibilitat);
     }
+    
+    public static boolean tableAlreadyExists(SQLException e) {
+        boolean exists;
+        if(e.getSQLState().equals("X0Y32")) {
+            exists = true;
+        } else {
+            exists = false;
+        }
+        return exists;
+    }
+    
+    public static void CT(){
+        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+        String connectString = "jdbc:derby://localhost:1527/sample";
+        try{
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(connectString, "app" , "app");
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("CREATE TABLE clients("
+                    + "nom varchar(20),cognom varchar(20),"
+                    + "data_naix varchar(20), sexe varchar(20),"
+                    + "dni varchar(20), direccio varchar(20),"
+                    + "tlfn varchar(20),cc varchar(20))");
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }catch(SQLException a){
+            if(tableAlreadyExists(a)){
+                return;
+            }
+        }
+    }
+    
+    
 }

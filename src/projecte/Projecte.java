@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Projecte extends metodes {
     //Scanner global
     public static Scanner sc = new Scanner(System.in);
-    
     public static void main(String[] args) {
+        CT();
         int opcio, iEnd;
         Projecte persona [] = new Projecte [20];
         for(int x = 0; x < persona.length; x++){
